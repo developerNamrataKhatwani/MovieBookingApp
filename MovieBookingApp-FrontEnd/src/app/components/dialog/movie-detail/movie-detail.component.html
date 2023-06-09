@@ -1,0 +1,38 @@
+<div class="size bg1">
+  <div class="color p-3">{{ movie.movieName }}</div>
+
+  <mat-card-content>
+    <div class="row">
+      <div class="col" style=" text-align: center;">
+        <img style="height: 300px ; width: min-content;" mat-card-image [src]="movie.imgUrl" [alt]="movie.movieName" />
+      </div>
+      <div class="col">
+        <div class="p-3">
+          <span class="fw-bold " style="font-size: x-large;">Rating: </span><span style="font-size: x-large;">{{ movie.rating }}/10</span>
+        </div>
+        <div class="p-3">
+          <span class="fw-bold " style="font-size: x-large;">Genre: </span><span style="font-size: x-large;">{{ movie.genre }}</span>
+        </div>
+        <div class="p-3">
+          <span class="fw-bold " style="font-size: x-large;">Audio: </span><span style="font-size: x-large;">{{ movie.audio }}</span>
+        </div>
+        <div class="p-3">
+          <span class="fw-bold " style="font-size: x-large;"> Available Seats: </span><span style="font-size: x-large;">{{ movie.seatsAvailable }} </span>
+        </div>
+        <div class="p-3">
+          <span class="fw-bold " style="font-size: x-large;">Theater: </span><span style="font-size: x-large;">{{ movie.theatreName }}</span>
+        </div>
+      </div>
+    </div>
+
+  </mat-card-content>
+  <div class="text-center">
+    <button mat-raised-button (click)="openDialog()" color="primary">
+      Book
+    </button>
+    <button *ngIf="roleStatus" mat-raised-button (click)="deleteMovie()" style="margin-left: 20px" color="warn">
+      Delete
+    </button>
+    <button mat-raised-button class="mr" (click)="closeDialog()" color="warn">Cancel</button>
+  </div>
+</div>
