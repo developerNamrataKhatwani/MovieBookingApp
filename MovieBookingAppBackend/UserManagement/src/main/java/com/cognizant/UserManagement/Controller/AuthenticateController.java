@@ -24,7 +24,7 @@ import com.cognizant.UserManagement.Utils.JwtUtils;
 
 @RestController
 @RequestMapping("/api/v1/movieBooking")
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:4200")
 public class AuthenticateController {
 
 	@Autowired

@@ -9,11 +9,11 @@ public class Producer {
 	
 	private static final String topic = "kafka_topic2";
 	
-	@Autowired
+	/*@Autowired
 	KafkaTemplate<String, String> kafkaTemplate;
 	
 	public void sendMsg(String msg) {
 		kafkaTemplate.send(topic, msg);
 	}
-
+*/
 }

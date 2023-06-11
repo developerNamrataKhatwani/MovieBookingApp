@@ -26,7 +26,7 @@ import com.cognizant.MovieBookingApp.Service.Impl.RestCallService;
 
 @RestController
 @RequestMapping("/api/v1/movieBooking")
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:4200")
 public class MovieController {
 
 	@Autowired
