@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/service/login.service';
 import { MovieService } from 'src/app/service/movie.service';
 import Swal from 'sweetalert2';
+import { ForgotComponent } from '../../dialog/forgot/forgot.component';
 
 @Component({
   selector: 'app-add-movie',
@@ -25,8 +27,14 @@ export class AddMovieComponent {
   constructor(
     private movieService: MovieService,
     private router: Router,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private dialogRef: MatDialogRef<ForgotComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: { movieName: any }
   ) {}
+
+  ngOnInit() {
+    console.log(this.data);
+  }
 
   onSubmit() {
     this.movieService.addMovie(this.addMovie.value).subscribe(

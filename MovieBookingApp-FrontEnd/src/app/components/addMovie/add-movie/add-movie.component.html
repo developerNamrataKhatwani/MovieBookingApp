@@ -71,7 +71,10 @@
       </div>
       <div class="text-center">
         <button type="submit" mat-raised-button color="primary" [disabled]="!addMovie.valid">
-          Register
+          Add Movie
+        </button>
+        <button type="submit" mat-raised-button color="primary" [disabled]="!addMovie.valid">
+          Update Movie
         </button>
         <button class="ml-2" mat-raised-button color="warn" (click)="cancel()">
           Cancel

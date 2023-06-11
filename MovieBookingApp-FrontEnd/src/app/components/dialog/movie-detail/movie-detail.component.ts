@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { LoginService } from 'src/app/service/login.service';
 import { MovieService } from 'src/app/service/movie.service';
 import Swal from 'sweetalert2';
+import { AddMovieComponent } from '../../addMovie/add-movie/add-movie.component';
 import { LoginComponent } from '../../login/login/login.component';
 import { BookComponent } from '../book/book.component';
 import { ForgotComponent } from '../forgot/forgot.component';
@@ -93,6 +94,14 @@ export class MovieDetailComponent {
       },
     });
     this.closeDialog();
+  }
+
+  openDialogUpdate(movieName: any) {
+    this.dialog.open(AddMovieComponent, {
+      width: '90%',
+      height: '95%',
+      data: { movieName: movieName },
+    });
   }
 
   closeDialog() {

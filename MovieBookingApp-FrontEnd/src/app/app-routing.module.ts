@@ -18,8 +18,8 @@ const routes: Routes = [
   //   component: HomeComponent,
   // },
   {
-    path: 'login',
-    // path: '',
+    // path: 'login',
+    path: '',
     component: LoginComponent,
   },
   {

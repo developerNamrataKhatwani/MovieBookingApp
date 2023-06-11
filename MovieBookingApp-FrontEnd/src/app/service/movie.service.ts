@@ -35,6 +35,7 @@ export class MovieService {
   }
 
   addMovie(movie:any){
+    console.log(this.url_admin+"add",movie,{responseType:"text"})
     return this.http.post(this.url_admin+"add",movie,{responseType:"text"});
     // return this.http.post(this.aws_url+"add",movie,{responseType:"text"});
   }

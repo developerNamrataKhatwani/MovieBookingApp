@@ -26,12 +26,17 @@
     </div>
 
   </mat-card-content>
+  <br>
+  <br>
   <div class="text-center">
     <button mat-raised-button (click)="openDialog()" color="primary">
       Book
     </button>
     <button *ngIf="roleStatus" mat-raised-button (click)="deleteMovie()" style="margin-left: 20px" color="warn">
       Delete
+    </button>
+    <button *ngIf="roleStatus" mat-raised-button (click)="openDialogUpdate(movie)" style="margin-left: 20px" color="warn">
+      Update Movie
     </button>
     <button mat-raised-button class="mr" (click)="closeDialog()" color="warn">Cancel</button>
   </div>
