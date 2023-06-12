@@ -11,7 +11,7 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   register(user: any) {
-    // return this.http.post(this.url + 'register', user);
-    return this.http.post(this.url , user);
+    return this.http.post(this.url + 'register', user);
+    // return this.http.post(this.url , user);
   }
 }

@@ -19,7 +19,7 @@ export class AdminGuard implements CanActivate {
       }
       this.loginService.logOut();
       Swal.fire("Authorization","You are not authorized for current action!","warning");
-      this.router.navigate(["login"]);
+      this.router.navigate([""]);
       return false;
   }
       

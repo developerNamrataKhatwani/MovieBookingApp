@@ -13,28 +13,22 @@ import io.swagger.v3.oas.models.security.SecurityScheme;
 
 @SpringBootApplication
 public class MovieBookingApplication {
-	
+
 	@Configuration
-	class openApiConfig{
-		
+	class openApiConfig {
+
 		@Bean
-		public OpenAPI customConfig(){
-			
+		public OpenAPI customConfig() {
+
 			final String securitySchemeName = "bearerAuth";
-			
-			return new OpenAPI()
-					            .addSecurityItem(new SecurityRequirement().addList(securitySchemeName))
-					            .components(new Components().addSecuritySchemes(securitySchemeName, 
-					            		new SecurityScheme()
-					            		.name(securitySchemeName)
-					            		.type(SecurityScheme.Type.HTTP)
-					            		.scheme("bearer")
-					            		.bearerFormat("jwt")));
-					            
-			
+
+			return new OpenAPI().addSecurityItem(new SecurityRequirement().addList(securitySchemeName))
+					.components(new Components().addSecuritySchemes(securitySchemeName,
+							new SecurityScheme().name(securitySchemeName).type(SecurityScheme.Type.HTTP)
+									.scheme("bearer").bearerFormat("jwt")));
+
 		}
 	}
-	
 
 	public static void main(String[] args) {
 		SpringApplication.run(MovieBookingApplication.class, args);

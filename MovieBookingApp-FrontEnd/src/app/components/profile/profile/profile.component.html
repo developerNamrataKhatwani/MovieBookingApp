@@ -1,5 +1,5 @@
 <div class="container">
-  <mat-card class="mt-2">
+  <!-- <mat-card class="mt-2">
     <div class="text-center mt-5">
       <img
         src="https://www.nicepng.com/png/detail/136-1366211_group-of-10-guys-login-user-icon-png.png"
@@ -9,8 +9,8 @@
       <h1 class="mt-1">{{ user.username }}</h1>
     </div>
     <div class="row">
-        <div class="col-md-10 offset-1">
-            <table class="table table-striped text-center">
+        <div class="col-md-6 offset-3">
+            <table class="table table-striped ">
                 <tbody>
                     <tr>
                         <th>Name</th>
@@ -32,5 +32,18 @@
             </table>
         </div>
     </div>
+  </mat-card> -->
+  <mat-card style="display: inline-block; width: 100%;" class="t p-3 mt-3">
+    <span class="h3">Full Name: </span><span class="h3"> {{user.fullName}}</span>
   </mat-card>
+  <mat-card  style="display: inline-block; width: 100%;" class="t p-3 mt-3">
+    <span class="h3">Username: {{user.username}}</span>
+  </mat-card>
+  <mat-card  style="display: inline-block; width: 100%;" class="t p-3 mt-3">
+    <span class="h3">E-mail: {{user.email}}</span>
+  </mat-card>
+  <mat-card style="display: inline-block; width: 100%;" class="t p-3 mt-3">
+    <span class="h3">Phone Number: {{user.phoneNumber}}</span>
+  </mat-card>
+
 </div>

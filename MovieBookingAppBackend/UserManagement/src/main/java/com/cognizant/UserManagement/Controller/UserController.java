@@ -22,8 +22,8 @@ import com.cognizant.UserManagement.Exception.WrongAnswerException;
 import com.cognizant.UserManagement.Service.UserService;
 
 @RestController
+@CrossOrigin(origins="*")
 @RequestMapping("/api/v1/movieBooking")
-@CrossOrigin("http://localhost:4200")
 public class UserController {
 
 	@Autowired

@@ -28,7 +28,7 @@ public class TicketServiceImpl implements TicketService {
 		Movie movie = moviesServiceImpl.getMovieByMovieName(movieName);
 
 		if (movie.getSeatsAvailable() <= 0)
-			return "Sorry seats are not available.";
+			return "Seats aren't available for this movie currently, please come back later!";
 		else if (movie.getSeatsAvailable() < seatsBooked)
 			return movie.getSeatsAvailable() + " seats available.";
 
@@ -38,7 +38,7 @@ public class TicketServiceImpl implements TicketService {
 
 		moviesServiceImpl.updateMovie(movie);
 
-		return seatsBooked + " seats booked for " + movie.getMovieName() + " movie.";
+		return seatsBooked + " seats booked for " + movie.getMovieName();
 	}
 
 	@Override
@@ -56,7 +56,8 @@ public class TicketServiceImpl implements TicketService {
 
 	@Override
 	public void deleteTransaction(Long id) throws MovieNotFoundException, TicketNotFoundException {
-		Ticket ticket =ticketRepository.findById(id).orElseThrow(() -> new TicketNotFoundException("Transaction id :"+id+" not found."));
+		Ticket ticket = ticketRepository.findById(id)
+				.orElseThrow(() -> new TicketNotFoundException("Transaction id :" + id + " not found."));
 		Movie movie = moviesServiceImpl.getMovieByMovieName(ticket.getMovieName());
 		movie.setSeatsAvailable(movie.getSeatsAvailable() + ticket.getBookedSeats());
 		ticketRepository.delete(ticket);

@@ -96,11 +96,11 @@ export class MovieDetailComponent {
     this.closeDialog();
   }
 
-  openDialogUpdate(movieName: any) {
+  openDialogUpdate(movie: any) {
     this.dialog.open(AddMovieComponent, {
       width: '90%',
       height: '95%',
-      data: { movieName: movieName },
+      data: { movie: movie, flag:false },
     });
   }
 

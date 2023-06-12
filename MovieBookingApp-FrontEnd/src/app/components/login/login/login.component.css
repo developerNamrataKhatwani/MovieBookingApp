@@ -21,12 +21,16 @@
       color: rgb(246, 247, 248);
   } */
 .bg {
-  background-image: url("../../../../assets/home.jpg");
-  height: 593px;
-  position: relative;
+  background-image: url("../../../../assets/cinema.jpg");
+  height: 585px;
+  /* width: 1500px;   */
+  background-size:  100rem;
+  position:relative;
+  background-repeat: no-repeat;
+  opacity: .9;
 }
 .bg1 {
   
-  background: rgba(253, 253, 253, .85);
+  background: rgba(253, 253, 253, 0.7);
  
 }

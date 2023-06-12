@@ -1,18 +1,21 @@
-<mat-toolbar [color]="isLoggedIn?primary:'white'">
+<mat-toolbar [color]="isLoggedIn?'accent':''">
   <button mat-icon-button [matMenuTriggerFor]="menu">
     <mat-icon>menu</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button *ngIf="!isLoggedIn" mat-menu-item routerLink="login">login</button>
-    <button *ngIf="!isLoggedIn" mat-menu-item routerLink="register">register</button>
+    <button  mat-menu-item routerLink='movie'>Movies</button>
+    <button *ngIf="!isLoggedIn" mat-menu-item routerLink="">Log-in</button>
+    <button *ngIf="!isLoggedIn" mat-menu-item routerLink="register">Register</button>
     <button *ngIf="isLoggedIn" mat-menu-item routerLink="profile">View Profile</button>
-    <button *ngIf="isLoggedIn" mat-menu-item (click)="logout()" routerLink="login">logout</button>
+    <button *ngIf="isLoggedIn" mat-menu-item (click)="logout()" routerLink="">Log-out</button>
   </mat-menu>
-  <button mat-icon-button [routerLink]="isLoggedIn?'movie':''">
+   <!-- <button mat-icon-button [routerLink]="isLoggedIn?'movie':''">
     <mat-icon>movie</mat-icon>
-  </button>
-  <!-- <mat-icon *ngIf="isLoggedIn">movie</mat-icon> -->
-  <span class="p-1">Movie Booking App</span>
+  </button>  -->
   <span class="spacer"></span>
+  <!-- <mat-icon *ngIf="isLoggedIn">movie</mat-icon> -->
+  <span class="p-1" style="background: content-box; font-size: xx-large; font-weight: bolder; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">BookMyMovie Application</span>
+  <span class="spacer"></span>
+  <span class="p-1" *ngIf="isLoggedIn">Welcome, {{fullname}}</span>
 
 </mat-toolbar>

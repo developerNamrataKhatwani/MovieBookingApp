@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;MovieBookingApp/src/main/resources/prometheus&apos; to &apos;prometheus.yml&apos;" description="Rename resource &apos;prometheus&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/resources/prometheus" name="prometheus.yml" stamp="1686546527868" updateReferences="true"/>
+</session>

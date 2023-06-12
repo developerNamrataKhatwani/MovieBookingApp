@@ -39,4 +39,10 @@ export class MovieService {
     return this.http.post(this.url_admin+"add",movie,{responseType:"text"});
     // return this.http.post(this.aws_url+"add",movie,{responseType:"text"});
   }
+
+  updateMovie(movie:any){
+    console.log(this.url_admin+"update",movie,{responseType:"text"})
+    return this.http.put(this.url_admin+"update",movie,{responseType:"text"});
+    // return this.http.post(this.aws_url+"add",movie,{responseType:"text"});
+  }
 }

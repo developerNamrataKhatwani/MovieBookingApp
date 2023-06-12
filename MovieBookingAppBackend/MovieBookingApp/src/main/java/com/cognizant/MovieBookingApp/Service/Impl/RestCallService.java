@@ -20,10 +20,12 @@ public class RestCallService {
 	RestTemplate restTemplate = new RestTemplate();
 
 	private static final String AUTORIZE_URL = "http://localhost:8082/api/v1/movieBooking/authorize";
-//	private static final String AUTORIZE_URL = "http://35.155.69.186:8082/api/v1/movieBooking/authorize";
+	// private static final String AUTORIZE_URL =
+	// "http://35.155.65.193:8082/api/v1/movieBooking/authorize";
 
 	private static final String LOGIN_URL = "http://localhost:8082/api/v1/movieBooking/generate-token";
-//	private static final String LOGIN_URL = "http://35.155.69.186:8082/api/v1/movieBooking/generate-token";
+	// private static final String LOGIN_URL =
+	// "http://35.155.65.193:8082/api/v1/movieBooking/generate-token";
 
 	public boolean authorizeCall(String tokenHeader, ArrayList<String> role) {
 

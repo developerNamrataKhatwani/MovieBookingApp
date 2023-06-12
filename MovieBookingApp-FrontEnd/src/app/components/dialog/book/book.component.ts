@@ -36,7 +36,7 @@ export class BookComponent {
           if (data == 'Not Authorized') {
             this.loginService.logOut();
             Swal.fire('error', 'Session expired!', 'error');
-            this.router.navigate(['login']);
+            this.router.navigate(['']);
           }
           Swal.fire('', data, 'success');
         },

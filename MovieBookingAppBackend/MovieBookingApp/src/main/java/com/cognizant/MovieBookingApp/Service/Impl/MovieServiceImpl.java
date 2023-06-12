@@ -29,7 +29,7 @@ public class MovieServiceImpl implements MovieService {
 
 		if (movieTmp != null) {
 //			producer.sendMsg(KafkaProducerMessage.ADD_MOVIE.getFailed());
-			throw new MovieFoundException(movie.getMovieName() + " movie already present.");
+			throw new MovieFoundException(movie.getMovieName() + " is already present.");
 		} else {
 			return movieRepository.save(movie);
 		}
@@ -61,7 +61,7 @@ public class MovieServiceImpl implements MovieService {
 	public String deleteMovieByMovieName(String movieName) throws Exception {
 		Movie movie = getMovieByMovieName(movieName);
 		movieRepository.deleteById(movie.getId());
-		return movieName + " movie is deleted succesfully!!.";
+		return movieName + "is deleted succesfully!!.";
 	}
 
 }

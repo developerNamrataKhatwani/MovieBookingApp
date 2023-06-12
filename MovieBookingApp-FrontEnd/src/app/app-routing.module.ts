@@ -27,7 +27,7 @@ const routes: Routes = [
     component: RegisterComponent,
   },
   {
-    canActivate:[AuthGuard],
+    // canActivate:[AuthGuard],
     path: 'movie',
     // path: '',
     component: MovieComponent,

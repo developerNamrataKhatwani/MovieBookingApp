@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,8 +26,8 @@ import com.cognizant.MovieBookingApp.Service.Impl.MovieServiceImpl;
 import com.cognizant.MovieBookingApp.Service.Impl.RestCallService;
 
 @RestController
+@CrossOrigin(origins="*")
 @RequestMapping("/api/v1/movieBooking")
-@CrossOrigin("http://localhost:4200")
 public class MovieController {
 
 	@Autowired
@@ -96,36 +97,38 @@ public class MovieController {
 	}
 
 	@GetMapping("/user/searchAll")
-	public ResponseEntity<?> getAllMovie(@RequestHeader(name = "Authorization", required = true) String tokenHeader)
+	public ResponseEntity<?> getAllMovie()
+//			@RequestHeader(name = "Authorization", required = true) String tokenHeader)
 			throws Exception {
 
-		autorizeStatus = restCall.authorizeCall(tokenHeader,
-				new ArrayList<String>(Arrays.asList("ROLE_USER", "ROLE_ADMIN")));
+//		autorizeStatus = restCall.authorizeCall(tokenHeader,
+//				new ArrayList<String>(Arrays.asList("ROLE_USER", "ROLE_ADMIN")));
 
-		if (autorizeStatus) {
+//		if (autorizeStatus) {
 			List<Movie> movie = movieServiceImpl.getAllMovie();
 //			producer.sendMsg(KafkaProducerMessage.FIND_ALL_MOVIE.getSuccess());
 			return new ResponseEntity<List<Movie>>(movie, HttpStatus.OK);
-		} else {
+		} 
+//		else {
 //			producer.sendMsg(KafkaProducerMessage.FIND_ALL_MOVIE.getAuthorizeStatus());
+//			return new ResponseEntity<String>("Not Authorized", HttpStatus.OK);
+//		}
+	
+
+	@PutMapping("/admin/update")
+	public ResponseEntity<?> updateMovie(@RequestBody Movie movie,
+			@RequestHeader(name = "Authorization", required = true) String tokenHeader) throws Exception {
+
+		autorizeStatus = restCall.authorizeCall(tokenHeader, new ArrayList<String>(Arrays.asList("ROLE_ADMIN")));
+
+		if (autorizeStatus) {
+			Movie movie1 = movieServiceImpl.updateMovie(movie);
+//			producer.sendMsg(KafkaProducerMessage.UPDATE_MOVIE.getSuccess());
+			return new ResponseEntity<Movie>(movie1, HttpStatus.CREATED);
+		} else {
+//			producer.sendMsg(KafkaProducerMessage.UPDATE_MOVIE.getAuthorizeStatus());
 			return new ResponseEntity<String>("Not Authorized", HttpStatus.OK);
 		}
 	}
-
-//	@PutMapping("/admin/update")
-//	public ResponseEntity<?> updateMovie(@RequestBody Movie movie,
-//			@RequestHeader(name = "Authorization", required = true) String tokenHeader) throws Exception {
-//
-//		autorizeStatus = restCall.authorizeCall(tokenHeader, new ArrayList<String>(Arrays.asList("ROLE_ADMIN")));
-//
-//		if (autorizeStatus) {
-//			Movie movie1 = movieServiceImpl.updateMovie(movie);
-//			producer.sendMsg(KafkaProducerMessage.UPDATE_MOVIE.getSuccess());
-//			return new ResponseEntity<Movie>(movie1, HttpStatus.CREATED);
-//		} else {
-//			producer.sendMsg(KafkaProducerMessage.UPDATE_MOVIE.getAuthorizeStatus());
-//			return new ResponseEntity<String>("Not Authorized", HttpStatus.OK);
-//		}
-//	}
 
 }

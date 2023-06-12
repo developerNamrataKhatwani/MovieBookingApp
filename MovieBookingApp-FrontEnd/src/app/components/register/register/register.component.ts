@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
 import Swal from 'sweetalert2';
 
@@ -12,7 +13,8 @@ import Swal from 'sweetalert2';
 export class RegisterComponent {
   constructor(
     private snack: MatSnackBar,
-    private registerService: UserService
+    private registerService: UserService,
+    private router: Router
   ) {}
 
   register = new FormGroup({
@@ -78,9 +80,10 @@ export class RegisterComponent {
           'Success',
           'Username ' +
             this.register.value.username +
-            ' is successfully register!!',
+            ' has successfully registered!!',
           'success'
         );
+        this.router.navigate(['']);
       },
       (error: any) => {
         Swal.fire('error', error, 'error');

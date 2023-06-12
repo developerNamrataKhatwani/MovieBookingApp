@@ -60,6 +60,7 @@ export class LoginService {
   getUser(){
      let user = localStorage.getItem("user")
      if(user != null){
+      console.log(user);
        return JSON.parse(user);
      }return null;
   }

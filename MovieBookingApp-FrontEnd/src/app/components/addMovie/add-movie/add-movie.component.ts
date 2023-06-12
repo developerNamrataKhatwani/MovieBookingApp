@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/service/login.service';
 import { MovieService } from 'src/app/service/movie.service';
@@ -13,6 +13,15 @@ import { ForgotComponent } from '../../dialog/forgot/forgot.component';
   styleUrls: ['./add-movie.component.css'],
 })
 export class AddMovieComponent {
+  movie:any = {
+    movieName: '',
+    rating: 0,
+    genre: '',
+    audio: '',
+    seatsAvailable:'',
+    theatreName: '',
+    imgUrl : '',
+  };
   addMovie = new FormGroup({
     movieName: new FormControl('', Validators.required),
     rating: new FormControl('', Validators.required),
@@ -24,16 +33,26 @@ export class AddMovieComponent {
     seatsAvailable: new FormControl(100),
   });
 
+updateStatus: any;
+
   constructor(
+    private dialog: MatDialog,
     private movieService: MovieService,
     private router: Router,
     private loginService: LoginService,
-    private dialogRef: MatDialogRef<ForgotComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { movieName: any }
-  ) {}
+    // private dialogRef: MatDialogRef<ForgotComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: { movie: any, flag:boolean}
+  ) {
+    this.updateStatus=this.data.flag;
+    console.log(this.updateStatus, this.data.flag);
+  }
 
   ngOnInit() {
     console.log(this.data);
+    console.log(this.data,this.addMovie);
+    this.movie = this.data.movie;
+    
+    
   }
 
   onSubmit() {
@@ -54,10 +73,11 @@ export class AddMovieComponent {
        
       }
     );
-    this.cancel();
+    // this.cancel();
   }
 
-  cancel() {
-    this.router.navigate(['movie']);
-  }
+  // cancel() {
+    
+  //   this.router.navigate(['movie']);
+  // }
 }

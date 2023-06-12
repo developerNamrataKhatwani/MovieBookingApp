@@ -14,28 +14,27 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Movie {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
-	
+
 	private String movieName;
-	
+
 	private float rating;
-	
+
 	private String genre;
-	
+
 	private String audio;
-	
+
 	private String theatreName;
-	
-	private int totalNoseats;	
-	
+
+	private int totalNoseats;
+
 	private int seatsAvailable;
-	
+
 	private String imgUrl;
-	
+
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "movie_id_fk", referencedColumnName = "id")
 	private List<Ticket> ticket = new ArrayList<>();
@@ -43,10 +42,8 @@ public class Movie {
 	public Movie() {
 	}
 
-	
-
 	public Movie(Long id, String movieName, float rating, String genre, String audio, String theatreName,
-			int totalNoseats, int seatsAvailable,String imgUrl, List<Ticket> ticket) {
+			int totalNoseats, int seatsAvailable, String imgUrl, List<Ticket> ticket) {
 		super();
 		this.id = id;
 		this.movieName = movieName;
@@ -59,8 +56,6 @@ public class Movie {
 		this.ticket = ticket;
 		this.imgUrl = imgUrl;
 	}
-
-
 
 	public Long getId() {
 		return id;
@@ -110,54 +105,37 @@ public class Movie {
 		this.ticket = ticket;
 	}
 
-
-
 	public float getRating() {
 		return rating;
 	}
-
-
 
 	public void setRating(float rating) {
 		this.rating = rating;
 	}
 
-
-
 	public String getGenre() {
 		return genre;
 	}
-
-
 
 	public void setGenre(String genre) {
 		this.genre = genre;
 	}
 
-
-
 	public String getAudio() {
 		return audio;
 	}
 
-
-
 	public void setAudio(String audio) {
 		this.audio = audio;
 	}
-	
+
 	public String getImgUrl() {
 		return imgUrl;
 	}
 
-
-
 	public void setImgYrl(String imgUrl) {
 		this.imgUrl = imgUrl;
 	}
-
-
-
 
 	@Override
 	public String toString() {
@@ -165,10 +143,5 @@ public class Movie {
 				+ audio + ", theatreName=" + theatreName + ", totalNoseats=" + totalNoseats + ", seatsAvailable="
 				+ seatsAvailable + ", imgUrl=" + imgUrl + ", ticket=" + ticket + "]";
 	}
-
-	
-	
-	
-	
 
 }

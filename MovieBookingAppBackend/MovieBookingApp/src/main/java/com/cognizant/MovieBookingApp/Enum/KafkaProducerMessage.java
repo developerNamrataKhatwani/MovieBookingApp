@@ -1,20 +1,24 @@
 package com.cognizant.MovieBookingApp.Enum;
 
 public enum KafkaProducerMessage {
+	BOOK_MOVIE("Movie booked successfully", "Error in booking movie.", "API is not authorized to book the movie."),
 
-	ADD_MOVIE("New Movie added successfully.", "Failed to add new movie.", "Add movie API is not authorized."),
+	ADD_MOVIE("New Movie added successfully.", "Failed to add new movie.",
+			"API is not authorized for adding the movie."),
 
-	FIND_MOVIE_BY_NAME("Movie find successfully", "Movie not found.", "Search movie by name API is not authorized."),
+	DELETE_MOVIE("Movie deleted successfully.", "Failed to delete the movie",
+			"API is not authorized for delete the movie."),
 
-	DELETE_MOVIE("Movie deleted successfully.", "Failed to delete", "Delete movie API is not authorized."),
+	FIND_MOVIE_BY_NAME("Movie found successfully", "Movie not found.",
+			"API is not authorized for search movie by name."),
 
-	FIND_ALL_MOVIE("All movie fetched successfully", "Movie list is empty.", "Find all movie API is not authorized."),
+	UPDATE_MOVIE("Movie update successfully", "Movie not updated.", "API is not authorized to update the movie."),
 
-	UPDATE_MOVIE("Movie update successfully", "Movie not updated.", "Update movie API is not authorized"),
+	FIND_ALL_MOVIE("All movie fetched successfully", "Movie list is empty.",
+			"API is not authorized to find all movies. "),
 
-	BOOK_MOVIE("Movie booked successfully", "Error in booking movie.", "Book movie API is not authorized"),
-	
-	DELETE_TRANSACTION("Transaction deleted successfully", "Transaction not deleted", "Delete transaction API is not authorized");
+	DELETE_TRANSACTION("Transaction deleted successfully", "Transaction was not deleted",
+			"API is not authorized to delete the transaction.");
 
 	private String success;
 	private String failed;

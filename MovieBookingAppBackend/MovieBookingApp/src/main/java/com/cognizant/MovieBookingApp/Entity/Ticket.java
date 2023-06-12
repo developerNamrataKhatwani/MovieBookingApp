@@ -9,38 +9,23 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Ticket {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long transactionId;
-	
+
 	private String movieName;
-	
+
 	private int totalNoSeats;
-	
+
 	private int seatsAvailable;
-	
+
 	private int bookedSeats;
-	
+
 	private Long movie_id_fk;
-	
-	
 
 	public Ticket() {
 	}
-
-	
-
-	
-
-
-
-	
-
-
-
-
-
 
 	public Ticket(Long transactionId, String movieName, int totalNoSeats, int seatsAvailable, int bookedSeats,
 			Long movie_id_fk) {
@@ -52,19 +37,6 @@ public class Ticket {
 		this.bookedSeats = bookedSeats;
 		this.movie_id_fk = movie_id_fk;
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	public Long getTransactionId() {
 		return transactionId;
@@ -106,7 +78,6 @@ public class Ticket {
 		this.bookedSeats = bookedSeats;
 	}
 
-
 	public Long getMovie_id_fk() {
 		return movie_id_fk;
 	}
@@ -115,38 +86,11 @@ public class Ticket {
 		this.movie_id_fk = movie_id_fk;
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 	@Override
 	public String toString() {
 		return "Ticket [transactionId=" + transactionId + ", movieName=" + movieName + ", totalNoSeats=" + totalNoSeats
 				+ ", seatsAvailable=" + seatsAvailable + ", bookedSeats=" + bookedSeats + ", movie_id_fk=" + movie_id_fk
 				+ "]";
 	}
-
-    
-	
-
-	
-
-
-	
-
-
-
-	
-	
-	
 
 }
