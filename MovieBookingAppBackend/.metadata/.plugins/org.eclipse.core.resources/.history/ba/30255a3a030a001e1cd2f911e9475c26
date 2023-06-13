@@ -1,0 +1,55 @@
+package Repository;
+
+import java.util.List;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ActiveProfiles;
+
+import com.cognizant.MovieBookingApp.Entity.Movie;
+import com.cognizant.MovieBookingApp.Entity.Ticket;
+import com.cognizant.MovieBookingApp.Repository.MovieRepository;
+
+@RunWith(MockitoJUnitRunner.class)
+@ActiveProfiles("local")
+public class MovieRepositoryTest {
+	@Mock
+	MovieRepository  movieRepository;
+
+	private String genre = "testGenre";
+
+	private String audio = "testAudio";
+
+	private String theatreName = "testName";
+
+	private int totalNoseats = 100;
+
+	private int seatsAvailable = 100;
+
+	private String imgUrl = "";
+
+	private List<Ticket> ticket;
+
+	private Long id;
+	
+	private static final String movieName= "";
+	
+	private static final float rating= 6.77F;
+	
+	
+	
+	@Test
+	public void testConstructorFields() {
+		Movie movieTest = new Movie( id,  movieName, rating,  genre,  audio,  theatreName,
+				 totalNoseats,  seatsAvailable,  imgUrl,  ticket);
+		Long transactionId = 2344322234L;
+		int bookedSeats = 0;
+		Long movie_id_fk = null;
+		Ticket testTicket = new Ticket(transactionId,  movieName, totalNoseats, seatsAvailable, bookedSeats,
+				 movie_id_fk);
+		ticket.add(testTicket);
+	}
+}

@@ -51,7 +51,7 @@ export class MovieDetailComponent {
       (error) => {
         this.loginService.logOut();
         Swal.fire('error', 'Session expired!', 'error');
-        this.router.navigate(['login']);
+        this.router.navigate(['']);
       }
     );
   }
@@ -64,7 +64,7 @@ export class MovieDetailComponent {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!',
+      confirmButtonText: 'Yes, I am sure.',
     }).then((result) => {
       if (result.isConfirmed) {
         this.movieService.deleteMovie(this.movie.movieName).subscribe(
@@ -72,7 +72,7 @@ export class MovieDetailComponent {
             if (data == 'Not Authorized') {
               this.loginService.logOut();
               Swal.fire('error', 'Session expired!', 'error');
-              this.router.navigate(['login']);
+              this.router.navigate(['']);
             }
             Swal.fire('Deleted!', data, 'success');
           },

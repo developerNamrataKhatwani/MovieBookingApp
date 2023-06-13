@@ -36,8 +36,8 @@ public class MovieController {
 	@Autowired
 	RestCallService restCall;
 
-	/*@Autowired
-	Producer producer;*/
+	@Autowired
+	Producer producer;
 
 	private boolean autorizeStatus = false;
 
@@ -54,10 +54,10 @@ public class MovieController {
 
 		if (autorizeStatus) {
 			Movie movie1 = movieServiceImpl.addMovie(movie);
-//			producer.sendMsg(KafkaProducerMessage.ADD_MOVIE.getSuccess());
+			producer.sendMsg(KafkaProducerMessage.ADD_MOVIE.getSuccess());
 			return new ResponseEntity<String>(movie1.getMovieName()+" movie added successfully.", HttpStatus.CREATED);
 		} else {
-//			producer.sendMsg(KafkaProducerMessage.ADD_MOVIE.getAuthorizeStatus());
+		producer.sendMsg(KafkaProducerMessage.ADD_MOVIE.getAuthorizeStatus());
 			return new ResponseEntity<String>("Not Authorized", HttpStatus.OK);
 		}
 	}
@@ -106,7 +106,7 @@ public class MovieController {
 
 //		if (autorizeStatus) {
 			List<Movie> movie = movieServiceImpl.getAllMovie();
-//			producer.sendMsg(KafkaProducerMessage.FIND_ALL_MOVIE.getSuccess());
+			producer.sendMsg(KafkaProducerMessage.FIND_ALL_MOVIE.getSuccess());
 			return new ResponseEntity<List<Movie>>(movie, HttpStatus.OK);
 		} 
 //		else {
@@ -123,10 +123,10 @@ public class MovieController {
 
 		if (autorizeStatus) {
 			Movie movie1 = movieServiceImpl.updateMovie(movie);
-//			producer.sendMsg(KafkaProducerMessage.UPDATE_MOVIE.getSuccess());
+			producer.sendMsg(KafkaProducerMessage.UPDATE_MOVIE.getSuccess());
 			return new ResponseEntity<Movie>(movie1, HttpStatus.CREATED);
 		} else {
-//			producer.sendMsg(KafkaProducerMessage.UPDATE_MOVIE.getAuthorizeStatus());
+			producer.sendMsg(KafkaProducerMessage.UPDATE_MOVIE.getAuthorizeStatus());
 			return new ResponseEntity<String>("Not Authorized", HttpStatus.OK);
 		}
 	}

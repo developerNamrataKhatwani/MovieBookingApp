@@ -1,0 +1,5 @@
+package com.cognizant.UserManagement.Repository;
+
+public class UserRepositoryTest {
+
+}

@@ -53,7 +53,7 @@ export class MovieComponent implements OnInit {
       data: { movie: '', flag: true},
     });
 
-    // this.router.navigate(['addMovie']);
+     this.router.navigate(['movie']);
   }
 
   openDialog(movieName: String) {

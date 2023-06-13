@@ -71,7 +71,8 @@ export class LoginComponent {
         )
         this.loginService.loginStatusSubject.next(true);
         this.router.navigate(["movie"]);
-
+        console.log(this.user);
+        
         Swal.fire("Success","User logged in successfully!!","success");
         
       },

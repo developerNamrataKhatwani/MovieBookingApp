@@ -63,15 +63,17 @@ updateStatus: any;
         } else if (data == 'Not Authorized') {
           this.loginService.logOut();
           Swal.fire('error', 'Session expired!', 'error');
-          this.router.navigate(['login']);
+          this.router.navigate(['']);
         } else {
           Swal.fire('Success', data, 'success');
+          this.router.navigate(['movie'])
         }
       },
       (error) => {
         Swal.fire('error', 'Unexpected error!', 'error');
-       
+        this.router.navigate(['movie'])
       }
+      
     );
     // this.cancel();
   }

@@ -32,8 +32,8 @@ public class TicketController {
 	@Autowired
 	RestCallService restCall;
 
-	/*@Autowired
-	Producer producer;*/
+	@Autowired
+	Producer producer;
 
 	private boolean autorizeStatus = false;
 
@@ -46,35 +46,17 @@ public class TicketController {
 
 		if (autorizeStatus) {
 			String msg = ticketService.bookTicket(ticket);
-//			producer.sendMsg(KafkaProducerMessage.BOOK_MOVIE.getSuccess());
+			producer.sendMsg(KafkaProducerMessage.BOOK_MOVIE.getSuccess());
 			return new ResponseEntity<>(msg,HttpStatus.OK);
 		} else {
-//			producer.sendMsg(KafkaProducerMessage.BOOK_MOVIE.getAuthorizeStatus());
+			producer.sendMsg(KafkaProducerMessage.BOOK_MOVIE.getAuthorizeStatus());
 			return new ResponseEntity<String>("Not Authorized", HttpStatus.OK);
 		}
 	}
 
-//	@DeleteMapping("/admin/{transactionId}")
-//	public ResponseEntity<String> deleteTransaction(@PathVariable Long transactionId,
-//			@RequestHeader(name = "Authorization", required = true) String tokenHeader)
-//			throws MovieNotFoundException, TicketNotFoundException {
-//
-//		autorizeStatus = restCall.authorizeCall(tokenHeader,
-//				new ArrayList<String>(Arrays.asList("ROLE_USER", "ROLE_ADMIN")));
-//
-//		if (autorizeStatus) {
-//			ticketService.deleteTransaction(transactionId);
-//			producer.sendMsg(KafkaProducerMessage.DELETE_TRANSACTION.getSuccess());
-//			return new ResponseEntity<String>("Trnsaction successfully deleted", HttpStatus.OK);
-//		} else {
-//			producer.sendMsg(KafkaProducerMessage.DELETE_TRANSACTION.getAuthorizeStatus());
-//			return new ResponseEntity<String>("Not Authorized", HttpStatus.OK);
-//		}
-//	}
-
 	@GetMapping("/kafkaSample/{msg}")
 	public ResponseEntity<String> kafkaSample(@PathVariable String msg) {
-//		producer.sendMsg(msg);
+		producer.sendMsg(msg);
 		return new ResponseEntity<>("Success", HttpStatus.OK);
 	}
 

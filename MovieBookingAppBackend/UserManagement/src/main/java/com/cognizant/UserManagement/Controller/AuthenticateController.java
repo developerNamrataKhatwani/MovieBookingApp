@@ -76,16 +76,6 @@ public class AuthenticateController {
 
 			UserDetails userDetails = userDetailServiceImpl.loadUserByUsername(username);
 
-//			System.out.println("role "+userDetails.getAuthorities());
-
-//			userDetails.getAuthorities().forEach(authority -> {
-//				if (securityEntity.getRole().contains(authority.getAuthority())) {
-//					System.out.println("role "+authority.getAuthority());
-//					roleStatus = true;
-//				}
-//
-//			});
-
 			SecurityResponse securityResponse = new SecurityResponse(jwtUtils.validateToken(token, userDetails),
 					roleStatus);
 

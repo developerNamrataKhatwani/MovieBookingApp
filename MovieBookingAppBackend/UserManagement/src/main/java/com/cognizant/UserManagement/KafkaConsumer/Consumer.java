@@ -6,9 +6,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class Consumer {
 
-	/*@KafkaListener(topics = "kafka_topic2", groupId = "group02")
+	@KafkaListener(topics = "kafka_topic2", groupId = "group02")
 	public void consumer(String msg) {
 		System.out.println("Movie Booking application tracking: " + msg);
-	}*/
+	}
 
 }

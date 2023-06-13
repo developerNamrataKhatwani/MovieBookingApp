@@ -137,9 +137,6 @@ public class User implements UserDetails {
 	public void setSercreteQuestion(String secretQuestion) {
 		this.secretQuestion = secretQuestion;
 	}
-	
-	
-
 
 
 	public String getSercetAnswer() {
