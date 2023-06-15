@@ -5,18 +5,10 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.mockito.junit.jupiter.MockitoExtension;
-
-import static org.mockito.Mockito.doReturn;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.context.SpringBootTest;
-
-
-import com.cognizant.UserManagement.UserManagementApplication;
 import com.cognizant.UserManagement.Entity.User;
 import com.cognizant.UserManagement.Exception.UserFoundException;
 import com.cognizant.UserManagement.Repository.UserRepository;

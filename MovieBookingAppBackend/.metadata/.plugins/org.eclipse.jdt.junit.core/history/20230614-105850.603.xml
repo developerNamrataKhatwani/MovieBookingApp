@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="UserServiceTest" project="UserManagement" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="com.cognizant.UserManagement.Service.UserServiceTest" time="5.602">
+    <testcase name="testSaveUser" classname="com.cognizant.UserManagement.Service.UserServiceTest" time="5.519"/>
+    <testcase name="testUserByUsername" classname="com.cognizant.UserManagement.Service.UserServiceTest" time="0.082"/>
+  </testsuite>
+</testrun>

@@ -20,15 +20,15 @@ public class MovieServiceImpl implements MovieService {
 	@Autowired
 	MovieRepository movieRepository;
 
-	/*@Autowired
-	Producer producer;*/
+	@Autowired
+	Producer producer;
 
 	@Override
 	public Movie addMovie(Movie movie) throws Exception {
 		Movie movieTmp = getMovieByMovieName(movie.getMovieName());
 
 		if (movieTmp != null) {
-//			producer.sendMsg(KafkaProducerMessage.ADD_MOVIE.getFailed());
+			producer.sendMsg(KafkaProducerMessage.ADD_MOVIE.getFailed());
 			throw new MovieFoundException(movie.getMovieName() + " is already present.");
 		} else {
 			return movieRepository.save(movie);
@@ -40,7 +40,7 @@ public class MovieServiceImpl implements MovieService {
 		List<Movie> movieList = movieRepository.findAll();
 		if (movieList.isEmpty())
 		{
-//			producer.sendMsg(KafkaProducerMessage.FIND_ALL_MOVIE.getFailed());
+			producer.sendMsg(KafkaProducerMessage.FIND_ALL_MOVIE.getFailed());
 		}
 			return movieList;
 		
